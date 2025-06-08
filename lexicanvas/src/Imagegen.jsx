@@ -24,6 +24,53 @@ const Imagegen = () => {
               Generate
             </button>
           </div>
+
+          <div className="flex flex-col justify-center items-center gap-3.5 w-[100%] sm:flex-row sm:w-[95%]  md:w-[87%] lg:w-[80%] xl:w-[56%] ">
+            <input
+              type="text"
+              list="list-options"
+              placeholder="Select an AI model"
+              className="bg-[#162238] w-[50%] h-9 rounded-[12px] text-[13px] text-white px-4  sm:ml-1  md:w-[53%] lg:w-[45%] xl:w-[27%]"
+            />
+            <datalist id="list-options">
+              <option value="Dall-E" />
+              <option value="Stable Diffusion" />
+              <option value="Midjourney" />
+              <option value="DeepAI" />
+              <option value="Craiyon" />
+              <option value="Artbreeder" />
+              <option value="Runway ML" />
+            </datalist>
+
+            <input
+              type="text"
+              list="list-options2"
+              placeholder="Aspect ratio"
+              className="bg-[#162238] w-[50%] h-9 rounded-[12px] text-[13px] text-white px-4 sm:ml-1 md:w-[53%] lg:w-[45%] xl:w-[27%]"
+            />
+            <datalist id="list-options2">
+              <option value="11 : 9" />
+              <option value="16 : 9" />
+              <option value="9 : 16" />
+              <option value="1 : 1" />
+              <option value="4 : 3" />
+              <option value="3 : 4" />
+            </datalist>
+
+            <input
+              type="text"
+              list="list-options3"
+              placeholder="Number of Images"
+              className="bg-[#162238] w-[50%] h-9 rounded-[12px] text-[13px] text-white px-4  sm:mr-1 md:w-[53%] lg:w-[45%] xl:w-[27%]"
+            />
+
+            <datalist id="list-options3">
+              <option value="1" />
+              <option value="2" />
+              <option value="3" />
+              <option value="4" />
+            </datalist>
+          </div>
         </div>
       </div>
     </>

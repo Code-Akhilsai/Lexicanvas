@@ -1,16 +1,16 @@
-import "./App.css";
-import Generations from "./Generations";
+import { useState } from "react";
 import Imagegen from "./Imagegen";
-import Menubar from "./Menubar";
+import Generations from "./Generations";
+import "./App.css";
 
 function App() {
+  const [imageUrl, setImageUrl] = useState(null);
+
   return (
     <>
-      <Menubar />
-      <Imagegen />
-      <Generations />
+      <Imagegen setImageUrl={setImageUrl} />
+      <Generations imageUrl={imageUrl} />
     </>
   );
 }
-
 export default App;

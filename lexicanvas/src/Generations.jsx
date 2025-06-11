@@ -1,9 +1,21 @@
+import { useState, useEffect } from "react";
 import useImageStore from "./store";
-import { Download } from "lucide-react"; // Optional: install lucide-react for icons
+import { Download, X } from "lucide-react"; // `X` for close button
 
 const Generations = () => {
   const images = useImageStore((state) => state.images);
   const removeImage = useImageStore((state) => state.removeImage);
+
+  const [zoomedImage, setZoomedImage] = useState(null);
+
+  // Close on ESC key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setZoomedImage(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const handleDownload = (url, index) => {
     const link = document.createElement("a");
@@ -19,6 +31,7 @@ const Generations = () => {
       </p>
       <br />
       <br />
+
       {images.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {images.map((image, index) => (
@@ -26,12 +39,13 @@ const Generations = () => {
               <img
                 src={image.src}
                 alt={`Generated ${index + 1}`}
-                className="max-w-[90%] rounded-xl border-2 border-[#359EFF]"
+                className="max-w-[90%] rounded-xl border-2 border-[#359EFF] cursor-pointer"
+                onClick={() => setZoomedImage(image.src)} // 👈 zoom trigger
               />
-              {/* Download button overlay */}
+
               <button
                 onClick={() => handleDownload(image.src, index)}
-                className="absolute top-2 right-9 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-1 rounded-full"
+                className="absolute top-2 right-4 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-1 rounded-full"
                 title="Download"
               >
                 <Download size={18} />
@@ -43,12 +57,37 @@ const Generations = () => {
               >
                 Delete
               </button>
-              {console.log(image)}
             </div>
           ))}
         </div>
       ) : (
         <p className="text-white">No images generated yet</p>
+      )}
+
+      {/* Zoomed Image Modal */}
+      {zoomedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={() => setZoomedImage(null)} // click outside to close
+        >
+          <div
+            className="relative"
+            onClick={(e) => e.stopPropagation()} // prevent close on image click
+          >
+            <img
+              src={zoomedImage}
+              alt="Zoomed"
+              className="max-h-[90vh] max-w-[90vw] rounded-xl"
+            />
+            <button
+              onClick={() => setZoomedImage(null)}
+              className="absolute top-2 right-2 text-white bg-black bg-opacity-70 rounded-full p-1 hover:bg-opacity-90"
+              title="Close"
+            >
+              <X size={20} />
+            </button>
+          </div>
+        </div>
       )}
     </center>
   );

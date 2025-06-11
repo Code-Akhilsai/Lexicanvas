@@ -45,7 +45,7 @@ const Generations = () => {
 
               <button
                 onClick={() => handleDownload(image.src, index)}
-                className="absolute top-2 right-4 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-1 rounded-full"
+                className="absolute top-2 right-7 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-1 rounded-full"
                 title="Download"
               >
                 <Download size={18} />
@@ -61,7 +61,9 @@ const Generations = () => {
           ))}
         </div>
       ) : (
-        <p className="text-white">No images generated yet</p>
+        <div className="flex justify-center items-center h-64">
+          <p className="text-white ">No images generated yet</p>
+        </div>
       )}
 
       {zoomedImage && (

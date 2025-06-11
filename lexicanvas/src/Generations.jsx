@@ -64,16 +64,12 @@ const Generations = () => {
         <p className="text-white">No images generated yet</p>
       )}
 
-      {/* Zoomed Image Modal */}
       {zoomedImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
-          onClick={() => setZoomedImage(null)} // click outside to close
+          onClick={() => setZoomedImage(null)}
         >
-          <div
-            className="relative"
-            onClick={(e) => e.stopPropagation()} // prevent close on image click
-          >
+          <div className="relative" onClick={(e) => e.stopPropagation()}>
             <img
               src={zoomedImage}
               alt="Zoomed"

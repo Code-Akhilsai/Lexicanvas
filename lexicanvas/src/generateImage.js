@@ -1,5 +1,5 @@
 export const generateImage = async (prompt, aspectRatio = "1:1") => {
-  const HUGGING_FACE_TOKEN = "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";
+  const HUGGING_FACE_TOKEN = import.meta.env.VITE_HUGGINGFACE_API_KEY;
   const modelUrl =
     "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev";
 

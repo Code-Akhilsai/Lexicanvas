@@ -28,5 +28,5 @@ Lexicanvas is a sleek and powerful AI-powered web app that converts text prompts
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/Code-Akhilsai/lexicanvas.git
+git clone https://github.com/Code-Akhilsai/Lexicanvas.git
 cd lexicanvas

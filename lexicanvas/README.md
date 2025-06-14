@@ -7,7 +7,7 @@ Lexicanvas is a sleek and powerful AI-powered web app that converts text prompts
 ## ✨ Features
 
 - 🧠 **Text-to-Image Generation** via Hugging Face Inference API
-- 🎛️ **Aspect Ratio** & **Number of Images** selection
+- 🎛️ **Aspect Ratio** selection
 - 💾 **Persistent State** using Zustand
 - ⚡ Lightning-fast and responsive UI with Tailwind CSS
 - 🌓 Dark theme styling (Tailwind-first approach)

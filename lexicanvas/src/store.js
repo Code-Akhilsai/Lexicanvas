@@ -1,4 +1,3 @@
-// store/imageStore.js
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -15,7 +14,7 @@ const useImageStore = create(
         })),
     }),
     {
-      name: "generated-images", // key in localStorage
+      name: "generated-images",
     }
   )
 );

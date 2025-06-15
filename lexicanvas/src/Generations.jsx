@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import useImageStore from "./store";
-import { Download, X } from "lucide-react"; // `X` for close button
+import { Download, X } from "lucide-react";
 
 const Generations = () => {
   const images = useImageStore((state) => state.images);
@@ -8,7 +8,6 @@ const Generations = () => {
 
   const [zoomedImage, setZoomedImage] = useState(null);
 
-  // Close on ESC key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") setZoomedImage(null);
